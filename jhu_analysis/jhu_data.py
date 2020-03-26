@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 
 DEATHS_CSV = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
+CONFIRMED_CSV = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
 
 def clean_jhu_data(global_df, country, cutoff=0):
     dropnames = ["Lat", "Long", "Province/State", "Country/Region"]
