@@ -63,3 +63,12 @@ class DataSeries:
         if slicing is None:
             slicing = slice(None)
         return self._data[self._data > cutoff][slicing]
+
+
+def exponent_timeseries(series, cutoff, interval=5):
+    series_cutoff = series.data(cutoff=cutoff)
+    b_values = [
+        series.fit(cutoff=cutoff, slicing=slice(start, start+interval)).b
+        for start in range(len(series_cutoff) - interval)
+    ]
+    return pd.Series(b_values, index=series_cutoff.index[interval:])
